@@ -1,0 +1,14 @@
+@import '@skyscanner/backpack-web/bpk-stylesheets';
+@import '@skyscanner/backpack-web/bpk-mixins';
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 24px;
+  cursor: pointer;
+  border-radius: $bpk-border-radius-sm;
+  transition: background-color 0.2s ease-in-out;
+  
+  &:hover {
+    background-color:$bpk-canvas-day;
+  }
+}
