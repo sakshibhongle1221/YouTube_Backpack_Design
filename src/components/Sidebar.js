@@ -30,7 +30,7 @@ const Sidebar = () => {
                 padding: '16px 0',
                 gap: '6px',
                 cursor: 'pointer',
-                borderRadius: '10px'
+                borderRadius: '10px',
             }}
         >
           <div>{item.icon}</div>

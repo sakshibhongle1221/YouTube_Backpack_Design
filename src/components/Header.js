@@ -16,7 +16,7 @@ const AlignedUnmuteIcon = withLargeButtonAlignment(UnmuteIcon);
 const AlignedSearchIcon = withLargeButtonAlignment(SearchIcon);
 
 
-const Header = () => {
+const Header = ({ onMenuClick }) => {
   const [value, setValue] = useState('');
   const [suggestions, setSuggestions] = useState([]);
 
@@ -57,7 +57,12 @@ const Header = () => {
     <div style={{ padding: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between'}} >
 
       <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
-        <AlignedMenuIcon />
+        <div 
+            onClick={onMenuClick} 
+            style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }}
+        >
+            <AlignedMenuIcon />
+        </div>
         <img 
             src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" 
             alt="YouTube Logo"
