@@ -1,0 +1,106 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--bpk-spacing-sm) var(--bpk-spacing-lg);
+  background-color: var(--bpk-canvas-day);
+  border-bottom: 1px solid var(--bpk-line-day);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 56px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: var(--bpk-spacing-md);
+  min-width: 120px;
+}
+
+.header-logo {
+  height: 20px;
+  cursor: pointer;
+}
+
+.header-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  max-width: 600px;
+  margin: 0 var(--bpk-spacing-lg);
+
+}
+
+.header-search-wrapper {
+  display: flex;
+  width: 100%;
+  align-items: stretch;
+}
+
+.header-search-wrapper input {
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  height: 40px;
+  border-top-left-radius:var(--bpk-border-radius-llg);
+  border-bottom-left-radius:var(--bpk-border-radius-llg);
+
+}
+
+.header-search-btn {
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  border-top-right-radius: 40px !important;
+    border-bottom-right-radius: 40px !important;
+  border-left: none;
+  background-color: var(--bpk-canvas-contrast-day);
+  border-color: var(--bpk-line-day);
+  height: 40px;
+  width: 64px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: var(--bpk-spacing-sm);
+  min-width: 100px;
+  justify-content: flex-end;
+}
+
+.header-icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  color: var(--bpk-text-primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-icon-btn:hover {
+  background-color: var(--bpk-canvas-contrast-day);
+}
+
+.mobile-only-search {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: var(--bpk-spacing-sm);
+  }
+
+  .header-center {
+    display: none;
+  }
+
+  .mobile-only-search {
+    display: flex;
+  }
+
+  .desktop-only-icon {
+    display: none;
+  }
+}

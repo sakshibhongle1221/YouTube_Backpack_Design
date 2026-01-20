@@ -1,0 +1,36 @@
+.filter-bar {
+  background-color: var(--bpk-canvas-day);
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.filter-bar::-webkit-scrollbar {
+  height: 4px;
+}
+
+.filter-bar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.filter-chips-wrapper {
+  display: flex;
+  gap: var(--bpk-spacing-md);
+  padding: var(--bpk-spacing-md) var(--bpk-spacing-lg);
+  min-width: min-content;
+}
+
+.filter-chip {
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .filter-chips-wrapper {
+    padding: var(--bpk-spacing-md);
+    gap: var(--bpk-spacing-sm);
+  }
+
+  .filter-chip {
+    font-size: 12px;
+    padding: var(--bpk-spacing-sm) var(--bpk-spacing-md);
+  }
+}

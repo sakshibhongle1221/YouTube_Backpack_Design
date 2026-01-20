@@ -1,0 +1,81 @@
+
+:root {
+  --bpk-spacing-xs: 4px;
+  --bpk-spacing-sm: 8px;
+  --bpk-spacing-md: 12px;
+  --bpk-spacing-lg: 16px;
+  --bpk-spacing-xl: 24px;
+  --bpk-canvas-day: #ffffff;
+  --bpk-canvas-contrast-day: #f1f2f6;
+  --bpk-canvas-elevation-day: #e8e9f0;
+  --bpk-line-day: #dfe0e9;
+  --bpk-text-primary-color: #0b0c0f;
+  --bpk-text-secondary-color: #626469;
+  --bpk-primary-color: #0770d3;
+
+    --bpk-border-radius-sm: 4px;
+    --bpk-border-radius-md: 8px;
+    --bpk-border-radius-lg: 16px;
+    --bpk-border-radius-llg:24px;
+    --bpk-duration-sm: 200ms;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  background-color: var(--bpk-canvas-day);
+  color: var(--bpk-text-primary-color);
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.app-main {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.app-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+.filter-bar-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: var(--bpk-canvas-day);
+}
+
+.video-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--bpk-spacing-lg);
+}
+
+.drawer-menu-item {
+  padding: var(--bpk-spacing-md) var(--bpk-spacing-lg);
+  cursor: pointer;
+}
+
+.drawer-menu-item:hover {
+  background-color: var(--bpk-canvas-contrast-day);
+}
+
+@media (max-width: 768px) {
+  .video-container {
+    padding: var(--bpk-spacing-sm);
+  }
+}

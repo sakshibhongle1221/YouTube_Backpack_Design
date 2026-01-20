@@ -1,0 +1,117 @@
+.video-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: var(--bpk-border-radius-md);
+  transition: transform var(--bpk-duration-sm) ease-in-out,
+    box-shadow var(--bpk-duration-sm) ease-in-out;
+  background-color: var(--bpk-canvas-day);
+}
+
+.video-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.video-card:focus {
+  outline: 2px solid var(--bpk-primary-color);
+  outline-offset: 2px;
+}
+
+.video-card:active {
+  transform: translateY(-2px);
+}
+
+.video-card-thumbnail {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--bpk-canvas-contrast-day);
+}
+
+.video-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--bpk-duration-sm) ease-in-out;
+}
+
+.video-card:hover .video-card-image {
+  transform: scale(1.05);
+}
+
+.video-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn var(--bpk-duration-sm) ease-in-out;
+}
+
+.overlay-text {
+  color: white;
+  font-weight: 700;
+}
+
+.video-card-content {
+  padding: var(--bpk-spacing-md);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--bpk-spacing-sm);
+}
+
+.video-card-title {
+  margin: 0;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--bpk-text-primary-color);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.video-card-metadata {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--bpk-spacing-xs);
+}
+
+.video-card-channel {
+  color: var(--bpk-text-secondary-color);
+  font-weight: 500;
+}
+
+.video-card-views {
+  color: var(--bpk-text-secondary-color);
+  font-size: 12px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .video-card-content {
+    padding: var(--bpk-spacing-sm);
+  }
+
+  .video-card-title {
+    -webkit-line-clamp: 1;
+  }
+}

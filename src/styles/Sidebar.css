@@ -1,0 +1,48 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 72px;
+
+  padding: var(--bpk-spacing-xs) 0;
+  background-color: var(--bpk-canvas-day);
+  overflow-y: auto;
+  flex-shrink: 0;
+
+}
+
+.sidebar-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 0;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: var(--bpk-text-primary-color);
+}
+
+.sidebar-item:hover {
+  background-color: var(--bpk-canvas-contrast-day);
+  border-radius: 8px;
+  margin: 0 4px;
+}
+
+.sidebar-icon {
+  margin-bottom: 6px;
+}
+
+.sidebar-label {
+  font-size: 10px;
+  text-align: center;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+}

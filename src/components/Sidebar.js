@@ -1,45 +1,38 @@
 import React from 'react';
+import '../styles/Sidebar.css';
 import PassportIcon from '@skyscanner/backpack-web/bpk-component-icon/lg/passport';
-import MediaIcon from '@skyscanner/backpack-web/bpk-component-icon/lg/media'; 
+import MediaIcon from '@skyscanner/backpack-web/bpk-component-icon/lg/media';
 import PlayIcon from '@skyscanner/backpack-web/bpk-component-icon/lg/play';
-import { withLargeButtonAlignment } from '@skyscanner/backpack-web/bpk-component-icon';
 import BpkText, { TEXT_STYLES } from '@skyscanner/backpack-web/bpk-component-text';
+import { withLargeButtonAlignment } from '@skyscanner/backpack-web/bpk-component-icon';
 
 const AlignedPassportIcon = withLargeButtonAlignment(PassportIcon);
 const AlignedMediaIcon = withLargeButtonAlignment(MediaIcon);
 const AlignedPlayIcon = withLargeButtonAlignment(PlayIcon);
 
 const Sidebar = () => {
-
   const menuItems = [
-    { icon: <AlignedPassportIcon />, label: 'Home' },
-    { icon: <AlignedMediaIcon />, label: 'Shorts' },
-    { icon: <AlignedPlayIcon />, label: 'Subscriptions' },
+    { icon: <AlignedPassportIcon />, label: 'Home', id: 'home' },
+    { icon: <AlignedMediaIcon />, label: 'Shorts', id: 'shorts' },
+    { icon: <AlignedPlayIcon />, label:  'Subscriptions', id: 'subscriptions' },
   ];
 
   return (
-    <div style={{ width: '72px', padding: '4px' }}> 
-      {menuItems.map((item, index) => (
-        <div 
-            key={index} 
-            className="sidebar-item"
-            style={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                padding: '16px 0',
-                gap: '6px',
-                cursor: 'pointer',
-                borderRadius: '10px',
-            }}
+    <aside className="sidebar">
+      {menuItems.map((item) => (
+        <button
+          key={item.id}
+          className="sidebar-item"
+          aria-label={item.label}
+          title={item.label}
         >
-          <div>{item.icon}</div>
-          <BpkText textStyle={TEXT_STYLES.caption} style={{ fontSize: '10px' }}>
+          <div className="sidebar-icon">{item.icon}</div>
+          <BpkText textStyle={TEXT_STYLES.caption} className="sidebar-label">
             {item.label}
           </BpkText>
-        </div>
+        </button>
       ))}
-    </div>
+    </aside>
   );
 };
 

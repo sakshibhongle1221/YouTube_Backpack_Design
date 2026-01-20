@@ -1,56 +1,60 @@
-import React from 'react';
+import React, { useState } from 'react';
+import '../styles/VideoCard.css';
 import BpkCard from '@skyscanner/backpack-web/bpk-component-card';
 import BpkText, { TEXT_STYLES } from '@skyscanner/backpack-web/bpk-component-text';
 import BpkImage from '@skyscanner/backpack-web/bpk-component-image';
 
 const VideoCard = ({ thumbnail, title, channel, views }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <BpkCard
       padded={false}
       className="video-card"
-      style={{ 
-        height: '100%', 
-        display: 'flex', 
-        flexDirection: 'column',
-        cursor: 'pointer',
-        overflow: 'hidden'
-      }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      role="button"
+      tabIndex={0}
+      aria-label={`${title} by ${channel}`}
     >
-
-      <div className="video-card__thumbnail" style={{ position: 'relative' }}>
+      <div className="video-card-thumbnail">
         <BpkImage
           altText={title}
           aspectRatio={16 / 9}
           src={thumbnail}
-          style={{ 
-            width: '100%', 
-            objectFit: 'cover'
-          }}
+          className="video-card-image"
         />
+        {isHovered && (
+          <div className="video-card-overlay">
+            <BpkText textStyle={TEXT_STYLES.label1} className="overlay-text">
+            
+            </BpkText>
+          </div>
+        )}
       </div>
 
-      <div style={{ padding: '12px', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
-        <BpkText 
-            textStyle={TEXT_STYLES.label1} 
-            tagName="h3" 
-            style={{ margin: '0 0 4px 0', fontWeight: '700' }}
+      <div className="video-card-content">
+        <BpkText
+          textStyle={TEXT_STYLES.label1}
+          tagName="h3"
+          className="video-card-title"
         >
           {title}
         </BpkText>
 
-        <div style={{ marginTop: 'auto' }}>
-            <BpkText 
-                textStyle={TEXT_STYLES.caption} 
-                style={{ color: '#606060', display: 'block' }}
-            >
+        <div className="video-card-metadata">
+          <BpkText
+            textStyle={TEXT_STYLES.caption}
+            className="video-card-channel"
+          >
             {channel}
-            </BpkText>
-            <BpkText 
-                textStyle={TEXT_STYLES.caption} 
-                style={{ color: '#606060' }}
-            >
+          </BpkText>
+          <BpkText
+            textStyle={TEXT_STYLES.caption}
+            className="video-card-views"
+          >
             {views}
-            </BpkText>
+          </BpkText>
         </div>
       </div>
     </BpkCard>
